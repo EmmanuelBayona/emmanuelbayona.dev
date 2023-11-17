@@ -2,12 +2,14 @@
 
 export default function Home() {
 	return (
-		<>
-			<section className="max-w-4xl mx-auto mt-12 text-center">
+		<main>
+			<section className="max-w-4xl mx-auto mt-24 lg:mt-48 text-center">
 				<h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white drop-shadow-white-neon">
-					I create and bring <br /> products to <span className="italic">life</span>.
+					I create and bring <br /> products to life.
 				</h1>
 			</section>
-		</>
+
+
+		</main>
 	)
 }
