@@ -1,4 +1,4 @@
-
+import { ProjectsGrid } from "./_components";
 
 export default function Home() {
 	return (
@@ -9,6 +9,7 @@ export default function Home() {
 				</h1>
 			</section>
 
+			<ProjectsGrid />
 
 		</main>
 	)
