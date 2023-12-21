@@ -2,8 +2,12 @@
 import { MouseEvent } from "react";
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
 
+interface ProjectItem {
+    title: string,
+    publishedAt: string
+}
 
-export const ProjectItem = () => {
+export const ProjectItem = ({ title, publishedAt }: ProjectItem ) => {
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -30,11 +34,11 @@ export const ProjectItem = () => {
             />
 
             <h2 className="text-white text-xl font-semibold">
-                Hover glow effect
+                { title }
             </h2>
 
-            <p className="text-white text-sm mt-2">
-                Create a glow effect on hover on a card using framer-motion
+            <p className="text-white/40 text-sm mt-2">
+                { publishedAt }
             </p>
 
         </article>
