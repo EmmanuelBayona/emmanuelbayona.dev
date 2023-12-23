@@ -1,0 +1,117 @@
+---
+title: 'Create a glow effect on a card'
+publishedAt: '2023-12-21'
+summary: 'Create a hover glow effect on a card using Framer Motion'
+---
+
+Create a hover glow effect on a card using Framer Motion, this is the final result:
+<GlowCard />
+
+This example is using React, Tailwind CSS and Framer Motion.
+
+## Component
+    
+```tsx title="glow-card.tsx"
+'use client';
+import { MouseEvent } from "react";
+import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
+
+export const GlowCard = () => {
+
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    const onHandleMouseMove = ({ clientX, clientY, currentTarget }: MouseEvent) => {
+        // elements info about the size and position relative to the viewport
+        const bounds = currentTarget.getBoundingClientRect();
+
+        mouseX.set(clientX - bounds.left);
+        mouseY.set(clientY - bounds.top);
+    }
+
+    return (
+        <article 
+            className="w-full max-w-xs md:max-w-none bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group"
+            onMouseMove={onHandleMouseMove}
+            key={1}
+        >
+
+            <motion.div 
+                className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl"
+                style={{
+                    background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgb(111 1 255 / 0.15) 0%, transparent 80%)`
+                }}
+            />
+
+            <h2 className="text-white text-xl font-semibold mt-0">
+                Hover me
+            </h2>
+
+            <p className="text-white/60 mt-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, dolorum voluptatibus eum dignissimos quasi assumenda non itaque, cum aspernatur debitis distinctio illo consequuntur atque accusantium rerum nulla minus animi cupiditate.
+            </p>
+
+        </article>
+    )
+
+}
+```
+
+This has to be a `client component` because we are using the hooks from `framer-motion` and they cannot be used on with `Server components`.
+So let's break down the code.
+
+First we import the hooks we need from `framer-motion`, the `MouseEvent` from react
+is is just to add types to the event handler:
+
+```tsx title="glow-card.tsx"
+import { MouseEvent } from "react";
+import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
+```
+
+Then we create two `useMotionValue` hooks to keep track of the mouse position:
+
+```tsx title="glow-card.tsx"
+const mouseX = useMotionValue(0);
+const mouseY = useMotionValue(0);
+```
+
+Then we create the event handler that will be called when the mouse moves over the card, and will get 
+the mouse position relative to the card:
+
+```tsx title="glow-card.tsx"
+const onHandleMouseMove = ({ clientX, clientY, currentTarget }: MouseEvent) => {
+    // elements info about the size and position relative to the viewport
+    const bounds = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - bounds.left);
+    mouseY.set(clientY - bounds.top);
+}
+```
+
+Then we return the component, the `article` is the card, and we add the event handler to it:
+
+```tsx title="glow-card.tsx"
+<article 
+    className="w-full max-w-xs md:max-w-none bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group"
+    onMouseMove={onHandleMouseMove}
+    key={1}
+>
+...
+</article>
+```
+
+Then we add the `motion.div` that will be the glow effect, we add the `pointer-events-none` class to it so it doesn't interfere 
+with the mouse events, and we add the `group-hover` class to it so it only shows when the card is hovered:
+
+```tsx title="glow-card.tsx"
+<motion.div 
+    className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl"
+    style={{
+        background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgb(111 1 255 / 0.15) 0%, transparent 80%)`
+    }}
+/>
+```
+
+We use the `useMotionTemplate` hook to create a template string that will be updated with the mouse position, and we use that template 
+string as the background of the `motion.div` so it updates the background with the mouse position.
+The framer motion hooks are used because they are optimized for performance in animations, we can achieve the same result using the
+`useState` hook and updating the state on the `onHandleMouseMove` event handler, but sometimes it can be a bit laggy.

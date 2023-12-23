@@ -3,8 +3,108 @@
 @tailwind utilities;
 
 
+:root {
+	--sh-class: #2d5e9d;
+	--sh-identifier: #ffffffb3;;
+	--sh-sign: #8996a3;
+	--sh-string: #00a99a;
+	--sh-keyword: #f47067;
+	--sh-comment: #a19595;
+	--sh-jsxliterals: #6266d1;
+}
+
 /* Change selection color to all the page */
 ::selection {
-  background-color: #6f01ff;
-  color: #ffffff;
+	background-color: #6f01ff;
+	color: #ffffff;
 }
+
+html {
+	min-width: 360px;
+}
+
+.prose .anchor {
+	@apply absolute invisible no-underline;
+
+	margin-left: -1em;
+	padding-right: 0.5em;
+	width: 80%;
+	max-width: 650px;
+	cursor: pointer;
+}
+  
+.anchor:hover {
+	@apply visible;
+}
+  
+.prose a {
+	@apply text-white/70 decoration-white/40 underline-offset-2;
+}
+  
+.prose .anchor:after {
+	@apply text-white/40;
+	content: '#';
+}
+  
+.prose *:hover > .anchor {
+	@apply visible;
+}
+  
+.prose pre {
+	@apply bg-dark rounded-xl overflow-x-auto border border-dark-accent p-3;
+}
+  
+.prose code {
+	@apply px-1 py-0.5 rounded-lg bg-dark border border-dark-accent text-white/70;
+}
+  
+.prose pre code {
+	@apply p-0;
+	border: initial;
+	line-height: 1.5;
+}
+  
+.prose code span {
+	@apply font-medium;
+}
+  
+  
+.prose h2,
+h3,
+h4 {
+	@apply font-medium tracking-tighter text-white !important;
+}
+  
+.prose strong {
+	@apply font-medium text-white/90;
+}
+  
+.prose > :first-child {
+	/* Override removing top margin, causing layout shift */
+	margin-top: 1.25em !important;
+	margin-bottom: 1.25em !important;
+}
+  
+pre::-webkit-scrollbar {
+	display: none;
+}
+  
+pre {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+  
+/* Remove Safari input shadow on mobile */
+/* input[type='text'],
+input[type='email'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+} */
+  
+/* table {
+	display: block;
+	max-width: fit-content;
+	overflow-x: auto;
+	white-space: nowrap;
+} */

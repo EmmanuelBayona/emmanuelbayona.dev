@@ -1,4 +1,4 @@
-import { cv } from "@/lib/utils"
+import { cv } from "lib/utils"
 import { ReactNode } from "react"
 
 export const MaxWidthWrapper = ({
