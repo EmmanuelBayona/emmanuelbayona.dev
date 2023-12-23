@@ -2,6 +2,7 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc"
 import Link from "next/link";
 import { createElement } from "react";
 import { highlight } from "sugar-high";
+import { GlowCard } from "./glow-card";
 
 const Code = ({ children, ...props }: { children: string }) => {
     const codeHTML = highlight(children);
@@ -60,6 +61,7 @@ const components = {
     h6: createHeading(6),
     a: CustomLink,
     code: Code,
+    GlowCard: GlowCard
 }
 
 export const CustomMDX = (props: MDXRemoteProps) => {

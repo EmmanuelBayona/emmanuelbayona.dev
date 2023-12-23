@@ -1,4 +1,4 @@
-import { getBlogPosts } from "@/lib/blogs"
+import { getBlogPosts } from "lib/blogs"
 import { ProjectItem } from "./ProjectItem"
 import Link from "next/link"
 
@@ -19,6 +19,7 @@ export const ProjectsGrid = () => {
                         <ProjectItem 
                             title={post.metadata.title}
                             publishedAt={post.metadata.publishedAt}
+                            summary={post.metadata.summary}
                         />
                     </Link>
                 ))
