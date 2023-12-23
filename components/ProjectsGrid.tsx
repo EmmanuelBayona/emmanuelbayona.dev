@@ -8,7 +8,7 @@ export const ProjectsGrid = () => {
     const allBlogs = getBlogPosts()
 
     return (
-        <section className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center mt-14 lg:mt-32 gap-4">
+        <section className="w-full px-5 md:px-0 columns-1 md:columns-2 gap-4 mt-10 lg:mt-28">
 
             {
                 allBlogs?.map((post) => (
@@ -20,6 +20,7 @@ export const ProjectsGrid = () => {
                             title={post.metadata.title}
                             publishedAt={post.metadata.publishedAt}
                             summary={post.metadata.summary}
+                            className="mt-4 md:mt-0"
                         />
                     </Link>
                 ))

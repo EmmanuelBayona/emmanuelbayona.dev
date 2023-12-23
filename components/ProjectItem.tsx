@@ -1,15 +1,17 @@
+import { cv } from "lib/utils"
 
 interface ProjectItem {
     title: string,
     summary: string,
     publishedAt: string
+    className?: string
 }
 
-export const ProjectItem = ({ title, publishedAt, summary }: ProjectItem ) => {
+export const ProjectItem = ({ title, publishedAt, summary, className }: ProjectItem ) => {
 
     return (
         <article 
-            className="w-full max-w-xs md:max-w-none bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group">
+            className={cv('w-full bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group', className)}>
 
             <div  className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl" />
 
