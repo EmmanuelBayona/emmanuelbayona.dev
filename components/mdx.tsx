@@ -1,10 +1,25 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc"
+import Link from "next/link";
 import { createElement } from "react";
-import { highlight } from 'sugar-high';
+import { highlight } from "sugar-high";
 
-const Code = ({ children, ...props }) => {
+const Code = ({ children, ...props }: { children: string }) => {
     const codeHTML = highlight(children);
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
+
+const CustomLink = (props) => {
+    const href = props.href;
+    
+    if (href.startsWith("/")) return (
+        <Link href={href}>
+            {props.children}
+        </Link>
+    )
+
+    if (href.startsWith("#")) return <a {...props} />
+
+    return <a target="_blank" rel="noopener noreferrer" {...props} />; 
 }
 
 const slugify = (str: string) => {
@@ -43,18 +58,16 @@ const components = {
     h4: createHeading(4),
     h5: createHeading(5),
     h6: createHeading(6),
+    a: CustomLink,
     code: Code,
 }
 
 export const CustomMDX = (props: MDXRemoteProps) => {
 
-    // const components = getMDXC
-
     return (
         <MDXRemote 
             {...props}
             components={{ ...components, ...(props.components || {}) }}
-            // components={components}
         />
     )
 }

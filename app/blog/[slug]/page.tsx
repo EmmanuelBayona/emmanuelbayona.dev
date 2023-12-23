@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
-import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
-import { CustomMDX } from "@/components/mdx";
-import { getBlogPosts } from "@/lib/blogs"
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote";
+import { getBlogPosts } from "lib/blogs";
+import { MaxWidthWrapper } from "components/MaxWidthWrapper";
+import { CustomMDX } from "components/mdx";
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
@@ -71,7 +70,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     {post.metadata.publishedAt}
                 </p>
 
-                <article className="prose prose-neutral text-white/70">
+                <article className="prose prose-neutral text-white/70 pb-5">
                     <CustomMDX source={post.content} />
                 </article>
 

@@ -1,0 +1,142 @@
+---
+title: 'Create High-Quality React Components'
+publishedAt: '2023-12-21'
+summary: 'Create high-quality, type-safe, reusable React components with TypeScript and tailwindcss.'
+---
+
+Create high-quality, type-safe, reusable React components with TypeScript and tailwindcss.
+
+## Install Dependencies
+Install necessary dependencies to make everything easier. The following example is from a Nextjs 13 project with TypeScript.
+
+### clsx
+A tiny utility for constructing className strings conditionally.
+- [npm](https://www.npmjs.com/package/clsx)
+
+```bash
+npm install clsx
+```
+
+### tailwind-merge
+Utility function to efficiently merge Tailwind CSS classes in JS without style conflicts.
+- [npm](https://www.npmjs.com/package/tailwind-merge)
+
+```bash
+npm install tailwind-merge
+```
+
+### class-variance-authority
+CSS-in-TS type-safe library that allows us to easily define and apply CSS class variatons.
+- [npm](https://www.npmjs.com/package/class-variance-authority)
+
+```bash
+npm install class-variance-authority
+```
+
+## Create Variances
+We need to use the class-variance-authority to create different variances of out component,
+using tailwind. It is actually very simple. we just need to `import {cva} from 'class-variance-authority'` and declare
+our variances.
+
+```tsx title="Button.tsx"
+export const buttonVariants = cva(
+	// Base props that all variants will have
+	"text-white text-base font-semibold text-center rounded-lg cursor-pointer py-1",
+	{
+		variants: {
+			variant: {
+					default: "bg-accent-1 border border-accent-2",
+					primaryGreen: "gradient-lr border border-accent-green",
+			},
+			size: {
+					default: "w-auto px-2",
+					fullWidth: "w-full",
+					small: "w-auto px-1",
+					medium: "w-auto px-2",
+					large: "w-auto px-4",
+			},
+			defaultVariants: {
+					variant: "default",
+					size: "default",
+			},
+		},
+	}
+);
+```
+
+As you can see, we have a `buttonVariants` object that contains all the variances of our button component.
+The first line of styles are the base styles that all variances will have. Then we have the `variants` object
+that contains all the different variances. In this case, we have `variant` and `size`. 
+- **variant** is the different color schemes that our button can have.
+- **size** is the different sizes that our button can have.
+DefaultVariants is where we define the default values for our variances.
+
+We export our `buttonVariants` object so that we can use it other components, and share the same variances.
+
+## Util function (tailwind-merge)
+Firs we need to import `clsx` and `twMerge` from their respective packages, and then we can create a function
+that will merge our classes.
+
+```tsx title="utils.ts"
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
+
+This function will take in any number of classes, and merge them together. This is useful when we applyu our variances
+or if we want to add extra classes to our component.
+
+## Types
+Let's create an interface for our component, in this case, a button.
+
+```tsx title="Button.tsx"
+import { ButtonHTMLAttributes } from "react";
+import { VariantProps } from "class-variance-authority";
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {}
+```
+
+The interface `ButtonProps` extends `ButtonHTMLAttributes<HTMLButtonElement>` so that we can use all the props that
+a button element can have. Then we extend `VariantProps<typeof buttonVariants>` so that we can use all the variances
+that we defined in our `buttonVariants` object.
+
+## Component
+Now we can create our component. We will use the `cn` function that we created earlier to merge our classes.
+
+```tsx title="Button.tsx"
+import { forwardRef } from "react";
+import { cn } from "./utils";
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+	({ className, size, variant, ...props }, ref) => {
+		return (
+			<button
+				ref={ref}
+				className={cn(buttonVariants({ className, size, variant }))}
+				{...props}
+			/>
+		);
+	}
+);
+```
+As you can see, we import `forwardRef` from react, this is so that we can use refs in our component, because `ref` cannot be passed
+as a prop.
+We use `forwardRef<HTMLButtonElement, ButtonProps>` to forward the ref to the button element, and to use our `ButtonProps` interface.
+We destructure `className`, `size`, and `variant` from `props` so that we can use them in our `cn` function. By getting `...props` we
+can use all the default props that a button element can have.
+
+## Usage
+Now we can use our component in our app.
+
+```tsx title="App.tsx"
+import { Button } from "./Button";
+export default function App() {
+	return (
+		<div className="flex flex-col items-center justify-center min-h-screen py-2">
+			<Button variant="primaryGreen" size="large">
+				Button Text
+			</Button>;
+		</div>
+	);
+}
+```
