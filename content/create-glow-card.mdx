@@ -1,7 +1,75 @@
 ---
-title: 'How to create a glow effect on a card'
+title: 'Create High-Quality React Components'
 publishedAt: '2023-12-21'
-summary: 'Create a glow effect on a card using Framer Motion'
+summary: 'Create high-quality, type-safe, reusable React components with TypeScript and tailwindcss.'
 ---
 
-This is just a test for mdx
+Create high-quality, type-safe, reusable React components with TypeScript and tailwindcss.
+
+## Install Dependencies
+Install necessary dependencies to make everything easier. The following example is from a Nextjs 13 project with TypeScript.
+
+### clsx
+A tiny utility for constructing className strings conditionally.
+
+- [npm](https://www.npmjs.com/package/clsx)
+
+```bash
+npm install clsx
+```
+
+### tailwind-merge
+Utility function to efficiently merge Tailwind CSS classes in JS without style conflicts.
+
+- [npm](https://www.npmjs.com/package/tailwind-merge)
+
+```bash
+npm install tailwind-merge
+```
+
+### class-variance-authority
+CSS-in-TS type-safe library that allows us to easily define and apply CSS class variatons.
+
+- [npm](https://www.npmjs.com/package/class-variance-authority)
+
+```bash
+npm install class-variance-authority
+```
+
+## Create Variances
+We need to use the class-variance-authority to create different variances of out component,
+using tailwind. It is actually very simple. we just need to `import {cva} from 'class-variance-authority'` and declare
+our variances.
+
+```tsx title="Button.tsx"
+export const buttonVariants = cva(
+	// Base props that all variants will have
+	"text-white text-base font-semibold text-center rounded-lg cursor-pointer py-1",
+	{
+		variants: {
+			variant: {
+					default: "bg-accent-1 border border-accent-2",
+					primaryGreen: "gradient-lr border border-accent-green",
+			},
+			size: {
+					default: "w-auto px-2",
+					fullWidth: "w-full",
+					small: "w-auto px-1",
+					medium: "w-auto px-2",
+					large: "w-auto px-4",
+			},
+			defaultVariants: {
+					variant: "default",
+					size: "default",
+			},
+		},
+	}
+);
+```
+
+As you can see, we have a `buttonVariants` object that contains all the variances of our button component.
+The first line of styles are the base styles that all variances will have. Then we have the `variants` object
+that contains all the different variances. In this case, we have `variant` and `size`. 
+- **variant** is the different color schemes that our button can have.
+- **size** is the different sizes that our button can have.
+DefaultVariants is where we define the default values for our variances.
