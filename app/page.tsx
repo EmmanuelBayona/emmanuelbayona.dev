@@ -1,5 +1,5 @@
 import { MaxWidthWrapper } from "components/max-width-wrapper";
-import { ProjectsGrid } from "components/ProjectsGrid";
+import { ProjectsGrid } from "components/project-grid";
 
 export default function Home() {
 	return (
