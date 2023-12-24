@@ -1,4 +1,4 @@
-import { cv } from "lib/utils"
+import { cn } from "lib/utils"
 
 interface ProjectItem {
     title: string,
@@ -11,7 +11,7 @@ export const ProjectItem = ({ title, publishedAt, summary, className }: ProjectI
 
     return (
         <article 
-            className={cv('w-full bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group', className)}>
+            className={cn('w-full bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group', className)}>
 
             <div  className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl" />
 

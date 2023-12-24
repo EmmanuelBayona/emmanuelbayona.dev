@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation";
 import { getBlogPosts } from "lib/blogs";
-import { MaxWidthWrapper } from "components/MaxWidthWrapper";
+import { MaxWidthWrapper } from "components/max-width-wrapper";
 import { CustomMDX } from "components/mdx";
 
 
