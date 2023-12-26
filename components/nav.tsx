@@ -11,6 +11,14 @@ export const Navbar = () => {
                 Home
             </Link>
 
+            <div>
+                <Link className="text-white text-sm"
+                    href='/contact'
+                >
+                    Contact
+                </Link>
+            </div>
+
         </nav>
     )
 
