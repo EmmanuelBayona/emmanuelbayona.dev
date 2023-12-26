@@ -12,11 +12,11 @@ export const Navbar = () => {
             </Link>
 
             <div>
-                <Link className="text-white text-sm"
+                {/* <Link className="text-white text-sm"
                     href='/contact'
                 >
                     Contact
-                </Link>
+                </Link> */}
             </div>
 
         </nav>

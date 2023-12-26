@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Input } from 'components/input'
 import { MaxWidthWrapper } from 'components/max-width-wrapper'
 import { TextArea } from 'components/text-area'
+import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
     title: 'Contact',
@@ -16,8 +17,10 @@ export default function Contact() {
             email: formData.get('email'),
             message: formData.get('message')
         }
-        console.log(rawFormData)
+        // console.log(rawFormData)
     }
+
+    return notFound()
 
     return (
         <MaxWidthWrapper className='mt-24 lg:mt-48 text-white flex justify-center gap-4'>
