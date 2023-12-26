@@ -1,6 +1,6 @@
-import { getBlogPosts } from "lib/blogs"
-import { ProjectItem } from "./ProjectItem"
 import Link from "next/link"
+import { getBlogPosts } from "lib/blogs"
+import { ProjectItem } from "./project-item"
 
 
 export const ProjectsGrid = () => {

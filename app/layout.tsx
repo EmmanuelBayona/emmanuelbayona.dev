@@ -2,8 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { Navbar } from 'components/Navbar'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Navbar } from 'components/nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,8 +18,8 @@ export default function RootLayout({
   	children: React.ReactNode
 }) {
 	return (
-		<html lang="en">
-			<body className={`${inter.className} bg-radial-dark w-full min-h-screen`}>
+		<html lang="en" className='bg-radial-dark min-h-screen'>
+			<body className={inter.className}>
 				<Navbar />
 				{children}
 				<Analytics />

@@ -1,10 +1,10 @@
-import { MaxWidthWrapper } from "components/MaxWidthWrapper";
-import { ProjectsGrid } from "components/ProjectsGrid";
+import { MaxWidthWrapper } from "components/max-width-wrapper";
+import { ProjectsGrid } from "components/project-grid";
 
 export default function Home() {
 	return (
-		<MaxWidthWrapper>
-			<section className="max-w-[650px] mx-auto mt-24 lg:mt-48 text-center">
+		<MaxWidthWrapper className="mt-24 lg:mt-48">
+			<section className="max-w-[650px] mx-auto text-center">
 				<h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white drop-shadow-white-neon">
 					hey, I&apos;m Emmanuel 👋
 				</h1>
