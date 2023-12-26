@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getBlogPosts } from "lib/blogs";
 import { MaxWidthWrapper } from "components/max-width-wrapper";
 import { CustomMDX } from "components/mdx";
+import { formatDateUS } from "lib/utils";
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     } = post.metadata;
 
     return {
+        metadataBase: new URL(`https://portfolio-next-azure-pi.vercel.app/blog/${post.slug}`),
         title,
         description,
         openGraph: {
@@ -67,7 +69,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 </h1>
 
                 <p className="text-white/40">
-                    {post.metadata.publishedAt}
+                    { formatDateUS(post.metadata.publishedAt) }
                 </p>
 
                 <article className="prose prose-neutral text-white/70 pb-5">

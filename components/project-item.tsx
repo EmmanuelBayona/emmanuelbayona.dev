@@ -1,4 +1,4 @@
-import { cn } from "lib/utils"
+import { cn, formatDateUS } from "lib/utils"
 
 interface ProjectItem {
     title: string,
@@ -24,7 +24,7 @@ export const ProjectItem = ({ title, publishedAt, summary, className }: ProjectI
             </p>
 
             <p className="text-white/40 text-sm mt-2">
-                { publishedAt }
+                { formatDateUS(publishedAt) }
             </p>
 
         </article>
