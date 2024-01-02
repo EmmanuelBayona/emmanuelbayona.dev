@@ -17,7 +17,7 @@ export const GlowCard = () => {
 
     return (
         <article 
-            className="w-full max-w-xs md:max-w-none bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group"
+            className="w-full bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group"
             onMouseMove={onHandleMouseMove}
             key={1}
         >
@@ -36,6 +36,10 @@ export const GlowCard = () => {
             <p className="text-white/60 mt-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, dolorum voluptatibus eum dignissimos quasi assumenda non itaque, cum aspernatur debitis distinctio illo consequuntur atque accusantium rerum nulla minus animi cupiditate.
             </p>
+
+            <span className="md:hidden text-white">
+                ‼ Mobile not supported
+            </span>
 
         </article>
     )
