@@ -3,7 +3,7 @@ import { ProjectsGrid } from "components/project-grid";
 
 export default function Home() {
 	return (
-		<MaxWidthWrapper className="mt-24 lg:mt-48">
+		<MaxWidthWrapper className="mt-12 lg:mt-28">
 			<section className="max-w-[650px] mx-auto text-center">
 				<h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white drop-shadow-white-neon">
 					hey, I&apos;m Emmanuel 👋

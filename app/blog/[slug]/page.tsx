@@ -42,7 +42,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     if (!post) notFound();
     
     return (
-        <MaxWidthWrapper className="flex justify-center mt-24">
+        <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:flex-col lg:items-center">
             <section>
                 <script 
                     type="application/ld+json"
@@ -64,7 +64,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                         })
                     }}
                 />
-                <h1 className="font-medium text-3xl tracking-tighter max-w-[650px] text-white">
+                <h1 className="font-medium text-2xl lg:text-3xl tracking-tighter max-w-[650px] text-white">
                     {post.metadata.title}
                 </h1>
 
@@ -72,7 +72,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     { formatDateUS(post.metadata.publishedAt) }
                 </p>
 
-                <article className="prose prose-neutral text-white/70 pb-5">
+                <article className="prose prose-neutral text-white/70 pb-5 lg:pb-10">
                     <CustomMDX source={post.content} />
                 </article>
 
