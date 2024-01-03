@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     } = post.metadata;
 
     return {
-        metadataBase: new URL(`https://portfolio-next-azure-pi.vercel.app/blog/${post.slug}`),
+        metadataBase: new URL(`https://emmanuelbayona.dev/blog/${post.slug}`),
         title,
         description,
         openGraph: {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             description,
             type: 'article',
             publishedTime,
-            url: `https://portfolio-next-azure-pi.vercel.app/blog/${post.slug}`,
+            url: `https://emmanuelbayona.dev/blog/${post.slug}`,
             // images: [{url: ''}]
             
         },
@@ -56,7 +56,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                             dateModified: post.metadata.publishedAt,
                             description: post.metadata.summary,
                             image: post.metadata.image,
-                            url: `https://portfolio-next-azure-pi.vercel.app/blog/${post.slug}`,
+                            url: `https://emmanuelbayona.dev/blog/${post.slug}`,
                             author: {
                                 '@type': 'Person',
                                 name: 'Emmanuel Bayona',
