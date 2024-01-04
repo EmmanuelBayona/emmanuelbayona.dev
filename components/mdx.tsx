@@ -1,5 +1,5 @@
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc"
 import Link from "next/link";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc"
 import { createElement } from "react";
 import { highlight } from "sugar-high";
 import { GlowCard } from "./glow-card";

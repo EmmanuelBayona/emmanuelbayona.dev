@@ -10,6 +10,19 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
 	title: 'Emmanuel Bayona',
 	description: 'Emmanuel Bayona\'s portfolio',
+	openGraph: {
+		title: 'Emmanuel Bayona',
+		description: 'Emmanuel Bayona\'s portfolio',
+		url: 'https://emmanuelbayona.dev',
+		siteName: 'Emmanuel Bayona',
+		locale: 'en_US',
+		type: 'website',
+	},
+	keywords: [
+		"Emmanuel Bayona",
+		"Portfolio",
+		"Software Engineer",
+	],
 }
 
 export default function RootLayout({

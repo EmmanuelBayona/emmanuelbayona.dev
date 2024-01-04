@@ -29,7 +29,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             publishedTime,
             url: `https://emmanuelbayona.dev/blog/${post.slug}`,
             // images: [{url: ''}]
-            
         },
     }
 
