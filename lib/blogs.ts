@@ -8,6 +8,11 @@ type Metadata = {
     image?: string;
 }
 
+type BlogTitle = {
+    title: string;
+    level: number;
+}
+
 function parseFrontmatter(fileContent: string) {
     const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
     const match = frontmatterRegex.exec(fileContent);
@@ -50,4 +55,29 @@ function getMDXData(dir: string) {
 
 export function getBlogPosts() {
     return getMDXData(path.join(process.cwd(), 'content'))
+}
+
+export function getBlogTitles(content: string) {
+    const titles: BlogTitle[] = [];
+    const titleRegex = /^(##\s|###\s)(.+)/gm;
+
+    const titlesArr = content.match(titleRegex);
+    titlesArr?.forEach((title) => {
+        if (title.startsWith('## ')) {
+            titles.push({
+                title: title.replace('## ', ''),
+                level: 2
+            })
+        }
+
+        if (title.startsWith('### ')) {
+            titles.push({
+                title: title.replace('### ', ''),
+                level: 3
+            })
+        }
+    })
+
+    return titles;
+
 }

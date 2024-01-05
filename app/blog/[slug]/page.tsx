@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation";
-import { getBlogPosts } from "lib/blogs";
+import { getBlogPosts, getBlogTitles } from "lib/blogs";
 import { MaxWidthWrapper } from "components/max-width-wrapper";
 import { CustomMDX } from "components/mdx";
 import { formatDateUS } from "lib/utils";
+import { BlogTitles } from "components/blog-titles";
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
@@ -39,9 +40,18 @@ export default function Blog({ params }: { params: { slug: string } }) {
     const post = getBlogPosts().find((post) => post.slug === params.slug);
 
     if (!post) notFound();
+
+    const blogTitles = getBlogTitles(post.content);
     
     return (
-        <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:flex-col lg:items-center">
+        <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:flex-col lg:items-center relative">
+
+            <div className="absolute top-0 right-5 hidden xl:block h-full">
+                <BlogTitles titles={blogTitles}
+                    className="sticky top-5"
+                />
+            </div>
+
             <section>
                 <script 
                     type="application/ld+json"
