@@ -23,7 +23,8 @@ const CustomLink = (props) => {
     return <a target="_blank" rel="noopener noreferrer" {...props} />; 
 }
 
-const slugify = (str: string) => {
+export const slugify = (str: string) => {
+    // for links, change url...#Util%20function%20(tailwind-merge) to url...#util-function-tailwind-merge
     return str
       .toString()
       .toLowerCase()
