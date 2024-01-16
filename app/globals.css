@@ -19,9 +19,6 @@
 	color: #ffffff;
 }
 
-html {
-	min-width: 360px;
-}
 
 .prose .anchor {
 	@apply absolute invisible no-underline;
