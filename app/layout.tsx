@@ -31,12 +31,14 @@ export default function RootLayout({
   	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" className='dark bg-radial-dark min-h-screen'>
+		<html lang="en" className='dark relative h-full w-full bg-[#111]'>
 			<body className={inter.className}>
-				<Navbar />
-				{children}
-				<Analytics />
-				<SpeedInsights />
+				<div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#272727,transparent)]">
+					<Navbar />
+					{children}
+					<Analytics />
+					<SpeedInsights />
+				</div>
 			</body>
 		</html>
 	)

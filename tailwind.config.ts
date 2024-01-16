@@ -10,9 +10,6 @@ const config: Config = {
 	darkMode: 'class',
 	theme: {
 		extend: {
-			backgroundImage: {
-				'radial-dark': 'radial-gradient(66.48% 66.48% at 50% -0.7%, #222 0%, #111 100%)',
-			},
 			dropShadow: {
 				'white-neon': '0px 0px 10px rgba(255, 255, 255, 0.40)',
 			},
