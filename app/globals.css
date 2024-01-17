@@ -4,6 +4,7 @@
 
 
 :root {
+	/* For sugar-high - code highlight */
 	--sh-class: #2d5e9d;
 	--sh-identifier: #ffffffb3;;
 	--sh-sign: #8996a3;
@@ -11,12 +12,6 @@
 	--sh-keyword: #f47067;
 	--sh-comment: #a19595;
 	--sh-jsxliterals: #6266d1;
-}
-
-/* Change selection color to all the page */
-::selection {
-	background-color: #6f01ff;
-	color: #ffffff;
 }
 
 
@@ -90,18 +85,3 @@ pre {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
 }
-  
-/* Remove Safari input shadow on mobile */
-/* input[type='text'],
-input[type='email'] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-} */
-  
-/* table {
-	display: block;
-	max-width: fit-content;
-	overflow-x: auto;
-	white-space: nowrap;
-} */

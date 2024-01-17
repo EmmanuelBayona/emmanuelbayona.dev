@@ -10,6 +10,9 @@ const config: Config = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			backgroundImage: {
+				'noise': 'url("/noise.png")',
+			},
 			dropShadow: {
 				'white-neon': '0px 0px 10px rgba(255, 255, 255, 0.40)',
 			},
