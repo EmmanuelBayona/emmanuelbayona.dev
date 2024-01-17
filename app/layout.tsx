@@ -35,7 +35,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className='dark relative min-h-screen w-full bg-[#111]'>
 			<body className={cn('absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#272727,transparent)]', inter.className)}>
-				<div className="min-h-screen bg-noise bg-[length:200px_200px] bg-left-top grid grid-rows-[auto,1fr,auto]" aria-hidden='true'>
+				<div className="min-h-screen bg-noise bg-[length:200px_200px] bg-left-top grid grid-cols-1 grid-rows-[auto,1fr,auto]" aria-hidden='true'>
 					<Navbar />
 					{children}
 					<Footer className='mt-10'/>
