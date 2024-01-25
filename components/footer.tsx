@@ -9,7 +9,7 @@ export const Footer = ({ className }: { className?: string }) => {
                 <a
                     href="https://github.com/EmmanuelBayona/emmanuelbayona.dev"
                     target="_blank"
-                    className="w-48 flex justify-center items-center gap-x-2 text-white py-1 rounded-full bg-dark border border-dark-accent" 
+                    className="w-48 flex justify-center items-center gap-x-2 text-white py-1 rounded-full bg-dark border border-dark-accent"
                 >
                     Source code
                     <svg className="text-white w-5 h-5" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@ export const Footer = ({ className }: { className?: string }) => {
                     </svg>
                 </a>
                 <div className="text-white flex items-center gap-x-2">
-                    <h3>Build with:</h3>
+                    <h3>Built with:</h3>
                     <ul className="flex items-center gap-x-2">
                         <li>Next.js</li>
                         <li>MDX</li>
