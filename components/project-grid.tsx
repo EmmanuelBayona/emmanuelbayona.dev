@@ -8,7 +8,7 @@ export const ProjectsGrid = () => {
     const allBlogs = getBlogPosts()
 
     return (
-        <section className="w-full px-5 md:px-0 columns-1 md:columns-2 gap-4 mt-10 lg:mt-28">
+        <section className="w-full px-5 flex flex-col gap-4 md:px-0 mt-10 lg:mt-28 max-w-screen-md mx-auto">
 
             {
                 allBlogs?.map((post) => (

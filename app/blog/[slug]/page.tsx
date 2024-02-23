@@ -77,11 +77,11 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     {post.metadata.title}
                 </h1>
 
-                <p className="text-white/40">
+                <p className="text-zinc-400">
                     { formatDateUS(post.metadata.publishedAt) }
                 </p>
 
-                <article className="prose prose-neutral text-white/70 pb-5 lg:pb-10">
+                <article className="prose prose-neutral text-zinc-400 pb-5 lg:pb-10">
                     <CustomMDX source={post.content} />
                 </article>
 
