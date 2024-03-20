@@ -17,12 +17,13 @@ export const ProjectItem = ({ title, publishedAt, summary, image, className }: P
 
             {
                 image && (
-                    <img
-                        src={image}
-                        // src={'cubes-algorithms.png'}
-                        alt={`Cover image for ${title}`}
-                        className="w-56 aspect-video rounded-2xl"
-                    />
+                    <div className="w-full md:w-72 aspect-video rounded-2xl overflow-hidden">
+                        <img
+                            src={image}
+                            alt={`Cover image for ${title}`}
+                            className="w-full rounded-2xl hover:scale-110 transition-transform duration-300"
+                        />
+                    </div>
                 )
             }
 
