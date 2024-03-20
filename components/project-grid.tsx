@@ -12,11 +12,11 @@ export const ProjectsGrid = () => {
 
             {
                 allBlogs?.map((post) => (
-                    <Link 
+                    <Link
                         key={post.slug}
                         href={`/blog/${post.slug}`}
                     >
-                        <ProjectItem 
+                        <ProjectItem
                             title={post.metadata.title}
                             publishedAt={post.metadata.publishedAt}
                             summary={post.metadata.summary}
