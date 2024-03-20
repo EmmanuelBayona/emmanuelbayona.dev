@@ -20,6 +20,7 @@ export const ProjectsGrid = () => {
                             title={post.metadata.title}
                             publishedAt={post.metadata.publishedAt}
                             summary={post.metadata.summary}
+                            image={post.metadata.image}
                             className="mt-4 md:mt-0"
                         />
                     </Link>

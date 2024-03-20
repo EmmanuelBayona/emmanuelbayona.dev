@@ -3,19 +3,28 @@ import { cn, formatDateUS } from "lib/utils"
 interface ProjectItem {
     title: string,
     summary: string,
-    publishedAt: string
+    publishedAt: string,
+    image?: string,
     className?: string
 }
 
-export const ProjectItem = ({ title, publishedAt, summary, className }: ProjectItem) => {
+export const ProjectItem = ({ title, publishedAt, summary, image, className }: ProjectItem) => {
+
 
     return (
         <article
             className={cn('w-full bg-dark border border-dark-accent rounded-[36px] p-5 relative flex flex-col md:flex-row gap-4 group', className)}>
 
-            <div
-                className="w-full h-44 md:w-44 md:h-44 rounded-2xl bg-red-400 shrink-0"
-            />
+            {
+                image && (
+                    <img
+                        src={image}
+                        // src={'cubes-algorithms.png'}
+                        alt={`Cover image for ${title}`}
+                        className="w-56 aspect-video rounded-2xl"
+                    />
+                )
+            }
 
             <div className="flex flex-col justify-center gap-2">
                 <h2 className="text-white text-xl font-semibold">
