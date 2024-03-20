@@ -8,7 +8,7 @@ import { BlogTitles } from "components/blog-titles";
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
-    
+
     const post = getBlogPosts().find((post) => post.slug === params.slug);
     if (!post) return;
 
@@ -18,6 +18,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         summary: description,
         image
     } = post.metadata;
+
+    const ogImage = image
+        ? new URL(`https://emmanuelbayona.dev${image}`)
+        : new URL(`https://emmanuelbayona.dev/cubes-algorithms.png`)
 
     return {
         metadataBase: new URL(`https://emmanuelbayona.dev/blog/${post.slug}`),
@@ -29,7 +33,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             type: 'article',
             publishedTime,
             url: `https://emmanuelbayona.dev/blog/${post.slug}`,
-            // images: [{url: ''}]
+            images: [{ url: ogImage }],
+            twitter: {
+                card: 'summary_large_image',
+                title,
+                description,
+                images: [ogImage],
+            }
         },
     }
 
@@ -42,7 +52,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     if (!post) notFound();
 
     const blogTitles = getBlogTitles(post.content);
-    
+
     return (
         <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:flex-col lg:items-center relative">
 
@@ -53,7 +63,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
             </div>
 
             <section>
-                <script 
+                <script
                     type="application/ld+json"
                     suppressHydrationWarning
                     dangerouslySetInnerHTML={{
@@ -78,7 +88,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 </h1>
 
                 <p className="text-zinc-400">
-                    { formatDateUS(post.metadata.publishedAt) }
+                    {formatDateUS(post.metadata.publishedAt)}
                 </p>
 
                 <article className="prose prose-neutral text-zinc-400 pb-5 lg:pb-10">
