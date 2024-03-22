@@ -1,19 +1,22 @@
 import { MaxWidthWrapper } from "components/max-width-wrapper";
-import { ProjectsGrid } from "components/project-grid";
+import { ProjectsList } from "components/projects-list";
 
 export default function Home() {
     return (
-        <MaxWidthWrapper className="mt-12 lg:mt-28">
-            <section className="max-w-[650px] mx-auto text-center">
-                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white">
-                    Hey, I&apos;m Emmanuel 🧩
-                </h1>
-                <p className="mt-8 text-base md:text-xl lg:text-2xl text-zinc-400 max-w-[6500px]">
-                    Frontend Developer creating clean and intuitive user interfaces. Let&apos;s build something beautiful together.
-                </p>
-            </section>
+        <>
+            <MaxWidthWrapper className="mt-12 lg:mt-28">
+                <section className="mx-auto">
+                    <h1 className="font-bold text-white">
+                        Hey, I&apos;m Emmanuel
+                    </h1>
 
-            <ProjectsGrid />
-        </MaxWidthWrapper>
+                    <p className="mt-2">
+                        Frontend Developer creating clean and intuitive user interfaces. Let&apos;s build something beautiful together.
+                    </p>
+                </section>
+            </MaxWidthWrapper>
+
+            <ProjectsList />
+        </>
     )
 }
