@@ -12,7 +12,8 @@ export const ProjectItem = ({ title, publishedAt, summary, className }: ProjectI
 
     return (
         <article
-            className={cn('md:hover:bg-zinc-900 md:p-4 md:rounded-xl', className)}>
+            className={cn('md:hover:bg-zinc-900 md:p-4 md:rounded-xl',
+                'md:hover:shadow-card transition-shadow transition-colors duration-300 ease-out', className)}>
 
             <h2 className="text-white">
                 {title}
@@ -27,7 +28,7 @@ export const ProjectItem = ({ title, publishedAt, summary, className }: ProjectI
                 <time dateTime={publishedAt}>{formatDateUS(publishedAt)}</time>
             </div>
 
-        </article>
+        </article >
     )
 
 }

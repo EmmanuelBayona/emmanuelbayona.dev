@@ -3,8 +3,12 @@ import { getBlogPosts } from "lib/blogs"
 import { ProjectItem } from "./project-item"
 import { MaxWidthWrapper } from "./max-width-wrapper"
 
+interface ProjectsListProps {
+    title: string;
+    itemsToShow: 'projects' | 'blogs';
+}
 
-export const ProjectsList = () => {
+export const ProjectsList = ({ title }: ProjectsListProps) => {
 
     const allBlogs = getBlogPosts()
 
@@ -12,7 +16,7 @@ export const ProjectsList = () => {
         <MaxWidthWrapper className="md:max-w-[682px]">
 
             <h2 className="font-bold text-white mt-16 md:p-4">
-                Projects
+                {title}
             </h2>
 
             <ul className="mt-5 md:mt-3 flex flex-col gap-5">
