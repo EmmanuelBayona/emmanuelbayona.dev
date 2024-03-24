@@ -86,27 +86,13 @@ pre {
 	scrollbar-width: none; /* Firefox */
 }
 
-.horizontal-dashes {
-    display: block;
-    background: linear-gradient(to right, hsla(0,0%,100%,.2),hsla(0,0%,100%,.2) 50%,transparent 0,transparent);
-    background-size: 5px 1px;
-    -webkit-mask: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-}
-
-.vertical-dashes {
-    background: linear-gradient(to bottom, hsla(0,0%,100%,.2),hsla(0,0%,100%,.2) 50%,transparent 0,transparent);
-    background-size: 1px 5px;
-    -webkit-mask: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
-}
-
-.section-horizontal::before, .section-horizontal::after {
+.dashes::before {
     content: '';
     display: block;
-    width: calc(100% + 6rem);
-    transform: translateX(-3rem);
+    width: 100%;
     height: 1px;
-    background: linear-gradient(to right, hsla(0,0%,100%,.2),hsla(0,0%,100%,.2) 50%,transparent 0,transparent);
+    margin: 2.5rem 0;
+    background: linear-gradient(to right, hsla(0,0%,100%,.15),hsla(0,0%,100%,.15) 50%,transparent 0,transparent);
     background-size: 5px 1px;
-    -webkit-mask: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
 }
-
