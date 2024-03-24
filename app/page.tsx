@@ -16,8 +16,8 @@ export default function Home() {
                 </section>
             </MaxWidthWrapper>
 
-            <ProjectsList title="Projects" itemsToShow="projects" />
-            <ProjectsList title="Blogs" itemsToShow="blogs" />
+            <ProjectsList title="Projects" itemsToShow="project" />
+            <ProjectsList title="Blogs" itemsToShow="blog" />
         </>
     )
 }

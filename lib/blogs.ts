@@ -6,6 +6,7 @@ type Metadata = {
     publishedAt: string;
     summary: string;
     image?: string;
+    postType: string;
 }
 
 type BlogTitle = {
@@ -20,14 +21,14 @@ function parseFrontmatter(fileContent: string) {
     const content = fileContent.replace(frontmatterRegex, '').trim();
     const frontMatterLines = frontMatterBlock.trim().split('\n');
     const metadata: Partial<Metadata> = {};
-  
+
     frontMatterLines.forEach((line) => {
-      const [key, ...valueArr] = line.split(': ');
-      let value = valueArr.join(': ').trim();
-      value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
-      metadata[key.trim() as keyof Metadata] = value;
+        const [key, ...valueArr] = line.split(': ');
+        let value = valueArr.join(': ').trim();
+        value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
+        metadata[key.trim() as keyof Metadata] = value;
     });
-  
+
     return { metadata: metadata as Metadata, content };
 }
 
