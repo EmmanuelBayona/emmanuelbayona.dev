@@ -43,11 +43,11 @@
 }
   
 .prose pre {
-	@apply bg-dark rounded-xl overflow-x-auto border border-dark-accent p-3;
+    @apply bg-zinc-900 ring-1 ring-zinc-800 rounded-xl p-3
 }
   
 .prose code {
-	@apply px-1 py-0.5 rounded-lg bg-dark border border-dark-accent text-white/70;
+    @apply px-1 py-0.5 rounded-lg bg-zinc-900 border border-zinc-800 
 }
   
 .prose pre code {
@@ -64,7 +64,7 @@
 .prose h2,
 h3,
 h4 {
-	@apply font-medium tracking-tighter text-white !important;
+	@apply font-medium tracking-tighter text-white text-sm !important;
 }
   
 .prose strong {

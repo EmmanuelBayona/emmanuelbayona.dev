@@ -55,9 +55,9 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
     return (
         <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:flex-col lg:items-center relative">
-            <div className="absolute top-0 right-5 hidden xl:block h-full">
-                <BlogTitles titles={blogTitles} className="sticky top-5" />
-            </div>
+            {/* <div className="absolute top-0 right-5 hidden xl:block h-full"> */}
+            {/*     <BlogTitles titles={blogTitles} className="sticky top-5" /> */}
+            {/* </div> */}
 
             <section>
                 <script
@@ -80,11 +80,11 @@ export default function Blog({ params }: { params: { slug: string } }) {
                         }),
                     }}
                 />
-                <h1 className="font-medium text-2xl lg:text-3xl tracking-tighter max-w-[650px] text-white">
+                <h1 className="font-medium tracking-tighter text-white">
                     {post.metadata.title}
                 </h1>
 
-                <p className="text-zinc-400">
+                <p>
                     {formatDateUS(post.metadata.publishedAt)}
                 </p>
 
