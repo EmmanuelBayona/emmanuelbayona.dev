@@ -16,13 +16,13 @@ export const GlowCard = () => {
     }
 
     return (
-        <article 
-            className="w-full bg-dark border border-dark-accent rounded-3xl p-5 md:p-8 relative group"
+        <article
+            className="w-full bg-zinc-900 border border-zinc-800 rounded-3xl p-5 md:p-8 relative group"
             onMouseMove={onHandleMouseMove}
             key={1}
         >
 
-            <motion.div 
+            <motion.div
                 className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl"
                 style={{
                     background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgb(111 1 255 / 0.15) 0%, transparent 80%)`

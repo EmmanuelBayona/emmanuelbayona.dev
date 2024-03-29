@@ -54,10 +54,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     const blogTitles = getBlogTitles(post.content);
 
     return (
-        <MaxWidthWrapper className="mt-5 lg:mt-14">
-            {/* <div className="absolute top-0 right-5 hidden xl:block h-full"> */}
-            {/*     <BlogTitles titles={blogTitles} className="sticky top-5" /> */}
-            {/* </div> */}
+        <MaxWidthWrapper className="mt-5 lg:mt-14 xl:max-w-screen-lg xl:grid xl:grid-flow-col">
 
             <section>
                 <script
@@ -92,6 +89,9 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     <CustomMDX source={post.content} />
                 </article>
             </section>
+
+            <BlogTitles titles={blogTitles} />
+
         </MaxWidthWrapper>
     );
 }
