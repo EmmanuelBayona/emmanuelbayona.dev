@@ -10,8 +10,8 @@ export default function Home() {
                         Hey, I&apos;m Emmanuel
                     </h1>
 
-                    <p className="mt-2">
-                        Frontend Developer creating clean and intuitive user interfaces. Let&apos;s build something beautiful together.
+                    <p className="mt-2 text-sm">
+                        Frontend Developer
                     </p>
                 </section>
             </MaxWidthWrapper>
