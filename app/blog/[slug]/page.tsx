@@ -54,7 +54,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     const blogTitles = getBlogTitles(post.content);
 
     return (
-        <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:flex-col lg:items-center relative">
+        <MaxWidthWrapper className="mt-5 lg:mt-14">
             {/* <div className="absolute top-0 right-5 hidden xl:block h-full"> */}
             {/*     <BlogTitles titles={blogTitles} className="sticky top-5" /> */}
             {/* </div> */}
