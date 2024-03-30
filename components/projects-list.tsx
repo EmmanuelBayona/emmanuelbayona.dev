@@ -14,7 +14,7 @@ export const ProjectsList = ({ title, itemsToShow }: ProjectsListProps) => {
     const selectedPosts = allPosts.filter((post) => post.metadata.postType === itemsToShow);
 
     return (
-        <MaxWidthWrapper className="md:max-w-[682px] relative dashes">
+        <MaxWidthWrapper className="md:max-w-[682px] dashes">
 
             <h2 className="font-bold text-white md:pl-4">
                 {title}

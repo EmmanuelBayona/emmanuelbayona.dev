@@ -43,11 +43,11 @@
 }
   
 .prose pre {
-    @apply bg-zinc-900 ring-1 ring-zinc-800 rounded-xl p-3
+    @apply bg-zinc-900/25 rounded-xl p-3 border border-white/5;
 }
   
 .prose code {
-    @apply px-1 py-0.5 rounded-lg bg-zinc-900 border border-zinc-800 
+    @apply px-1 py-0.5 rounded-lg bg-transparent border border-white/5; 
 }
   
 .prose pre code {

@@ -17,7 +17,7 @@ export const GlowCard = () => {
 
     return (
         <article
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-3xl p-5 md:p-8 relative group"
+            className="w-full bg-zinc-900/25 border border-white/5 rounded-3xl p-5 md:p-8 relative group"
             onMouseMove={onHandleMouseMove}
             key={1}
         >
