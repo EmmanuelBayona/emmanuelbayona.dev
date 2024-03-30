@@ -57,7 +57,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     return (
         <MaxWidthWrapper className="mt-5 lg:mt-14 lg:flex lg:justify-center lg:max-w-5xl">
 
-            <section className="lg:pr-8 lg:border-r lg:border-zinc-900 blog-dash">
+            <section className="lg:pr-8 lg:border-r lg:border-white/5 blog-dash">
                 <script
                     type="application/ld+json"
                     suppressHydrationWarning
