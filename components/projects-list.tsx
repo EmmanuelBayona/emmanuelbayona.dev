@@ -23,7 +23,7 @@ export const ProjectsList = ({ title, itemsToShow }: ProjectsListProps) => {
             <ul className="mt-5 md:mt-3 flex flex-col gap-5">
                 {
                     selectedPosts?.map((post) => (
-                        <li key={post.slug}>
+                        <li key={post.slug} >
                             <Link
                                 href={`/blog/${post.slug}`}
                             >

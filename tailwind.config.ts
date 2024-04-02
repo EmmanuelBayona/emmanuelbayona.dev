@@ -14,13 +14,6 @@ const config: Config = {
                 'card': '0 0 0 1px rgba(39, 39, 42, 1), inset 0 1px 0 0 rgba(63, 63, 60, 1)',
                 'pink': '0 0 0 3px rgb(131, 24, 76), inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.2)',
             },
-            backgroundSize: {
-                'size-200': '200%',
-            },
-            backgroundPosition: {
-                'pos-0': '0% 0%',
-                'pos-100': '100% 100%',
-            }
         },
     },
     plugins: [

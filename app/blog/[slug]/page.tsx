@@ -80,7 +80,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     }}
                 />
 
-                <Link href="/" className="block mb-3">
+                <Link href="/" className="block mb-3 w-5 h-5">
                     <svg
                         width="20"
                         height="20"
