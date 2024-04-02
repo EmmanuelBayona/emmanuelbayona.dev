@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPosts, getBlogTitles } from "lib/blogs";
 import { MaxWidthWrapper } from "components/max-width-wrapper";
 import { CustomMDX } from "components/mdx";
 import { formatDateUS } from "lib/utils";
 import { BlogTitles } from "components/blog-titles";
-import Link from "next/link";
+import { Author } from "components/author";
 
 export async function generateMetadata({
     params,
@@ -97,7 +98,10 @@ export default function Blog({ params }: { params: { slug: string } }) {
             </section>
 
             <aside className="pl-8">
-                <BlogTitles className="sticky top-5" titles={blogTitles} />
+                <div className="flex flex-col gap-5 sticky top-5">
+                    <BlogTitles titles={blogTitles} />
+                    <Author  />
+                </div>
             </aside>
 
 
