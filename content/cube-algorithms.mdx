@@ -1,0 +1,38 @@
+---
+title: 'Cube algorithms'
+publishedAt: '2023-2-22'
+summary: 'A site to learn and practice cube puzzles algorithms'
+image: '/cubes-algorithms.png'
+postType: 'project'
+---
+
+A site to learn, practice and share cube puzzles algorithms.
+
+One of my hobbies has always been solving cube puzzles, and I have always been interested in learning
+and practicing new algorithms to solve them faster. This site is a place where I can store and share 
+the algorithms I have learned and practiced.
+
+All users can access the site and see the algorithms, and even practice with the Timer. 
+Registeded users can also upload their own algorithms and share them with the community.
+
+You can check the site [here](https://cubes.emmanuelbayona.dev/). The site is inspired
+by [AldDB.net](http://algdb.net/), a site I have been using for years to learn and practice algorithms. 
+I wanted to create a site with this concept where users can check for algorithms and also upload them, with a 
+huge focus on the user experience and design, and with new features like the Timer.
+
+
+## Technologies
+Made with Next.js [Next.js](https://nextjs.org/) for taking advantage of server side rendering and static site generation.
+The site is hosted on [Vercel](https://vercel.com/), and uses [Supabase](https://supabase.com/) as a database to store the 
+algorithms and users data.
+
+The components are build on top of [Radix UI](https://www.radix-ui.com/primitives) and [Tailwind CSS](https://tailwindcss.com/), 
+taking as inspiration [shadcn/ui](https://ui.shadcn.com/) as the way of creating components and styles.
+
+Finally for authentication I used [Clerk](https://clerk.com/), one of the best tools I have used for authentication, the developer experience
+that Clerk provides is amazing. The user roles and permissions of the site are managed with Clerk as well.
+
+## Features
+- **Algorithms**: Users can see the algorithms.
+- **Timer**: Users can practice their times with the integrated Timer.
+- **Upload algorithms**: Registered users can upload their own algorithms, create their own cases and share them with the community.

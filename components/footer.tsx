@@ -30,7 +30,7 @@ export const Footer = ({ className }: { className?: string }) => {
 
 
             <div className="flex items-center gap-x-2">
-                <span className="text-white/60">
+                <span className="text-zinc-400">
                     Emmanuel Bayona
                 </span>
                 <a

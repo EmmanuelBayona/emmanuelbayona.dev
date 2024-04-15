@@ -43,11 +43,11 @@
 }
   
 .prose pre {
-	@apply bg-dark rounded-xl overflow-x-auto border border-dark-accent p-3;
+    @apply bg-zinc-900/25 rounded-xl p-3 border border-white/5;
 }
   
 .prose code {
-	@apply px-1 py-0.5 rounded-lg bg-dark border border-dark-accent text-white/70;
+    @apply px-1 py-0.5 rounded-lg bg-transparent border border-white/5; 
 }
   
 .prose pre code {
@@ -64,11 +64,11 @@
 .prose h2,
 h3,
 h4 {
-	@apply font-medium tracking-tighter text-white !important;
+	@apply font-medium tracking-tighter text-white text-sm !important;
 }
   
 .prose strong {
-	@apply font-medium text-white/90;
+	@apply font-medium text-white/90 text-sm;
 }
   
 .prose > :first-child {
@@ -84,4 +84,15 @@ pre::-webkit-scrollbar {
 pre {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+}
+
+.dashes::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 2.5rem 0;
+    background: linear-gradient(to right, hsla(0,0%,100%,.15),hsla(0,0%,100%,.15) 50%,transparent 0,transparent);
+    background-size: 5px 1px;
+    -webkit-mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
 }
