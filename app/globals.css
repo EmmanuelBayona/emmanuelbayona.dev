@@ -68,7 +68,7 @@ h4 {
 }
   
 .prose strong {
-	@apply font-medium text-white/90;
+	@apply font-medium text-white/90 text-sm;
 }
   
 .prose > :first-child {
