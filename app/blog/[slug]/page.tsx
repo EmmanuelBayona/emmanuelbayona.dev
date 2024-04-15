@@ -108,7 +108,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 </article>
             </section>
 
-            <aside className="pl-8">
+            <aside className="pl-8 hidden lg:block">
                 <div className="flex flex-col gap-5 sticky top-5">
                     <BlogTitles titles={blogTitles} />
                     <Divider />
