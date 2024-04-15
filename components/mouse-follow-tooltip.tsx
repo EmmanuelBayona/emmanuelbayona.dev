@@ -9,15 +9,18 @@ interface MouseFollowTooltipProps {
     message: string;
 }
 
-export const MouseFollowTooltip = ({ children, message, className }: MouseFollowTooltipProps) => {
-
+export const MouseFollowTooltip = ({
+    children,
+    message,
+    className,
+}: MouseFollowTooltipProps) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
-    const opacity = useSpring(0)
+    const opacity = useSpring(0);
     const rotateFigcaption = useSpring(0, {
         stiffness: 300,
         damping: 30,
-        mass: 1
+        mass: 1,
     });
 
     const ref = useRef<HTMLDivElement>(null);
@@ -51,7 +54,10 @@ export const MouseFollowTooltip = ({ children, message, className }: MouseFollow
     return (
         <div
             ref={ref}
-            className={cn("relative flex flex-col items-center justify-center w-min p-2", className)}
+            className={cn(
+                "relative flex flex-col items-center justify-center w-min p-2",
+                className
+            )}
             style={{
                 perspective: "800px",
             }}
@@ -59,16 +65,15 @@ export const MouseFollowTooltip = ({ children, message, className }: MouseFollow
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-
             {children}
 
             <motion.figcaption
                 aria-hidden="true"
-                className="pointer-events-none absolute left-0 top-0 hidden rounded-[4px] bg-zinc-900/25 border border-white/5 px-[10px] py-0.5 text-[10px] text-white/80 backdrop-blur-sm sm:flex whitespace-nowrap"
+                className="pointer-events-none absolute left-0 top-0 hidden rounded-[4px] bg-zinc-900/25 border border-white/5 px-[10px] py-0.5 text-[10px] text-white/80 backdrop-blur-md sm:flex whitespace-nowrap"
                 style={{ x, y, opacity, rotate: rotateFigcaption }}
             >
                 {message}
             </motion.figcaption>
         </div>
-    )
-}
+    );
+};
