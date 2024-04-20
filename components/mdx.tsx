@@ -3,6 +3,7 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc"
 import { createElement } from "react";
 import { highlight } from "sugar-high";
 import { GlowCard } from "./glow-card";
+import { BlogImage } from "./blog/blog-image";
 
 const Code = ({ children, ...props }: { children: string }) => {
     const codeHTML = highlight(children);
@@ -11,7 +12,7 @@ const Code = ({ children, ...props }: { children: string }) => {
 
 const CustomLink = (props) => {
     const href = props.href;
-    
+
     if (href.startsWith("/")) return (
         <Link href={href}>
             {props.children}
@@ -20,19 +21,19 @@ const CustomLink = (props) => {
 
     if (href.startsWith("#")) return <a {...props} />
 
-    return <a target="_blank" rel="noopener noreferrer" {...props} />; 
+    return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 export const slugify = (str: string) => {
     // for links, change url...#Util%20function%20(tailwind-merge) to url...#util-function-tailwind-merge
     return str
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace(/&/g, '-and-') // Replace & with 'and'
-      .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-      .replace(/\-\-+/g, '-'); // Replace multiple - with single -
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-') // Replace spaces with -
+        .replace(/&/g, '-and-') // Replace & with 'and'
+        .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
+        .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 }
 
 const createHeading = (level: number) => {
@@ -48,7 +49,7 @@ const createHeading = (level: number) => {
             children
         );
     };
-   
+
     Heading.displayName = `Heading${level}`;
     return Heading;
 };
@@ -62,13 +63,14 @@ const components = {
     h6: createHeading(6),
     a: CustomLink,
     code: Code,
-    GlowCard: GlowCard
+    GlowCard: GlowCard,
+    Image: BlogImage
 }
 
 export const CustomMDX = (props: MDXRemoteProps) => {
 
     return (
-        <MDXRemote 
+        <MDXRemote
             {...props}
             components={{ ...components, ...(props.components || {}) }}
         />
