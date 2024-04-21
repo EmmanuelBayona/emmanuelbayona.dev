@@ -26,7 +26,7 @@ export async function generateMetadata({
 
     const ogImage = image
         ? new URL(`https://emmanuelbayona.dev${image}`)
-        : new URL(`https://emmanuelbayona.dev/cubes-algorithms.png`);
+        : new URL(`https://emmanuelbayona.dev/og-image.png`);
 
     return {
         metadataBase: new URL(`https://emmanuelbayona.dev/blog/${post.slug}`),
