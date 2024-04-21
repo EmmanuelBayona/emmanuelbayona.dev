@@ -17,6 +17,7 @@ export const metadata: Metadata = {
         siteName: 'Emmanuel Bayona',
         locale: 'en_US',
         type: 'website',
+        images: [{ url: 'https://emmanuelbayona.dev/og-image.png' }],
     },
     keywords: [
         "Emmanuel Bayona",
@@ -34,7 +35,6 @@ export default function RootLayout({
         <html lang="en" className='dark'>
             <body className={cn(inter.className, "bg-zinc-950 text-sm text-zinc-400")}>
                 {children}
-                {/* <Footer className='mt-10' /> */}
                 <Analytics />
                 <SpeedInsights />
             </body>
